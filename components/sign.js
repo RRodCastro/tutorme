@@ -1,5 +1,4 @@
 import React from 'react'
-import 'whatwg-fetch';
 import img from './logo.png';
 import {FormGroup, Form, Col, ControlLabel, FormControl, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,15 +11,21 @@ export default class SingUp extends React.Component {
 			valuePassword: '',
 			valueEmail: ''
 		};
+		
+		    this.handlePassword = this.handlePassword.bind(this);
+			
+		    this.handleEmail = this.handleEmail.bind(this);
     }
 	handlePassword (e) {
-		this.setState({valuePass: e.target.value});
+		this.setState({valuePassword: e.target.value});
+	}
+	handleEmail (e) {
+		this.setState({valueEmail: e.target.value});
 	}
 	
     render() {
-
+		console.log(this.state.valueEmail, this.state.valuePassword);
         return (
-			
 			<div>
 			
 				<h1 style={{textAlign:'center'}}> Inicio de Sesion </h1>
@@ -31,7 +36,7 @@ export default class SingUp extends React.Component {
 							Email
 						</Col>
 						<Col sm={5}>
-						<FormControl type="email" placeholder="Email" />
+						<FormControl onChange = {this.handleEmail}type="email" placeholder="Email" />
 						</Col>
 					</FormGroup>
 				
