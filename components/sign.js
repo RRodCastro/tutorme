@@ -11,7 +11,6 @@ export default class SingUp extends React.Component {
 			window: 0,
 			valuePassword: '',
 			valueEmail: ''
-			
 		};
     }
 	handlePassword (e) {
@@ -26,7 +25,7 @@ export default class SingUp extends React.Component {
 			
 				<h1 style={{textAlign:'center'}}> Inicio de Sesion </h1>
 				
-				<Form horizontal style={{textAlign:'center'}}>
+				<Form horizontal style={{paddingLeft: '150px'}}>
 					<FormGroup controlId="formHorizontalEmail">
 						<Col componentClass={ControlLabel} sm={2}>
 							Email

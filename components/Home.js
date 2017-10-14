@@ -9,33 +9,32 @@ export default class Home extends React.Component {
     constructor() {
         super()
 		this.state = {
-			window: 0
+			window: 2
 			
 		};
 		    this.showLog = this.showLog.bind(this);
 			this.showRegister = this.showRegister.bind(this);
+			this.showMenu = this.showMenu.bind(this);
     }
 	showLog(){
 	
-		
+			//Login window : 1
 			this.setState({window: 1});
 	}
 	showRegister(){
-	
+			// Register window : 2
 			this.setState({window: 2});
 	
 	}
-    render() {
-	console.log("WINDOWS: ", this.state.window);
-	const wellStyles = {maxWidth: 400, margin: '0 auto 10px'};
-
-        return (
-			<div>
-			{this.state.window ===0 ? 
-			(<div>
+	showMenu() {
+	
+	const wellStyles = {paddingLeft: '275px'};
+		return (
+		<div>
 				<h1 style={{textAlign:'center'}}> Tutor Me </h1>
 				<img style={{display:'block', marginLeft:'auto', marginRight:'auto'}} src={img} />
 				<div style={wellStyles}>
+					
 					<Button onClick={this.showLog}  bsStyle="primary">
 						Inicio de sesion
 					</Button>
@@ -44,7 +43,17 @@ export default class Home extends React.Component {
 						Registro
 					</Button>
 				</div>
-			</div>): <SignIn/>}
+			</div>
+		)
+	}
+    render() {
+
+        return (
+			<div>
+			{this.state.window === 0 ?
+				this.showMenu() : this.state.window ===1 ? 
+				<SignIn/> : 
+				<Register/>}
 			</div>
 				
         )
