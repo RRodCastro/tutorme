@@ -15,6 +15,8 @@ export default class SingUp extends React.Component {
 		    this.handlePassword = this.handlePassword.bind(this);
 			
 		    this.handleEmail = this.handleEmail.bind(this);
+			
+			this.renderSingIn = this.renderSingIn.bind(this);
     }
 	handlePassword (e) {
 		this.setState({valuePassword: e.target.value});
@@ -22,10 +24,17 @@ export default class SingUp extends React.Component {
 	handleEmail (e) {
 		this.setState({valueEmail: e.target.value});
 	}
-	
-    render() {
-		console.log(this.state.valueEmail, this.state.valuePassword);
-        return (
+	renderMenu () {
+		return (
+			<div>
+				<h1> 
+					MENU
+				</h1>
+			</div>
+		)
+	}
+	renderSingIn () {
+		 return (
 			<div>
 			
 				<h1 style={{textAlign:'center'}}> Inicio de Sesion </h1>
@@ -52,15 +61,28 @@ export default class SingUp extends React.Component {
 				
 				<FormGroup>
 					<Col smOffset={2} sm={10}>
-						<Button bsStyle="primary" type="submit">
+						<Button onClick={this.showMemu} bsStyle="primary" type="submit">
 							Sign in
 						</Button>
 					</Col>
 				</FormGroup>
 			</Form>
 			</div>
-				
-        )
+			
+	)
+	}
+	
+	renderMenu () {
+	}
+    render() {
+		console.log(this.state.valueEmail, this.state.valuePassword);
+			return (
+				<div>
+					{this.renderSingIn()}
+				</div>
+			
+			);
+   
 	}
  }
 

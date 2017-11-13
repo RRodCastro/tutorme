@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import Menu from './menu.js';
 
 export default class Register extends React.Component {
     constructor() {
@@ -100,7 +101,7 @@ export default class Register extends React.Component {
         return (
 		<div>
 			{this.state.window === 0 ?
-			this.showRegister(): this.state.window === 1 ? <h1> Menu </h1> : <h1> Not Found</h1>}
+			this.showRegister(): this.state.window === 1 ? <Menu/> : <h1> Not Found</h1>}
         </div>
 		)	
 	}

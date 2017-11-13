@@ -5,11 +5,13 @@ import {Button, ButtonToolbar} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import Register from './register.js';
 import SignIn from './sign.js';
+import Menu from './menu.js';
+
 export default class Home extends React.Component {
     constructor() {
         super()
 		this.state = {
-			window: 2
+			window: 0
 			
 		};
 		    this.showLog = this.showLog.bind(this);
@@ -50,10 +52,7 @@ export default class Home extends React.Component {
 
         return (
 			<div>
-			{this.state.window === 0 ?
-				this.showMenu() : this.state.window ===1 ? 
-				<SignIn/> : 
-				<Register/>}
+				<Menu/>
 			</div>
 				
         )
