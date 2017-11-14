@@ -29,7 +29,6 @@ export default class Home extends React.Component {
 	
 	}
 	showMenu() {
-	
 	const wellStyles = {paddingLeft: '275px'};
 		return (
 		<div>

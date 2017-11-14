@@ -12,7 +12,7 @@ export default class Demo extends React.Component {
     this.state = {
       currentMenu: 'slide',
       side: 'left',
-	  viewMenu: -1,
+	  viewMenu: 0,
 	  isOpen: false
 	  
     };
