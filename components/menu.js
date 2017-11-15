@@ -4,6 +4,7 @@ import BurgerMenu from 'react-burger-menu';
 import classNames from 'classnames';
 import '../css/app.css';
 import SearchTutor from './searchTutor.js';
+import BeTutor from './beTutor.js';
 
 export default class Demo extends React.Component {
   constructor () {
@@ -24,11 +25,12 @@ export default class Demo extends React.Component {
 			cursor: 'pointer'
 		}
     let items;
-        items = [
+       items = [
           <a style={menuPointer} key="0" onClick={this.getView}><i className="fa fa-fw fa-star-o" /><span id="BT">Buscar tutores</span></a>,
           <a style={menuPointer} key="1" onClick={this.getView}><i className="fa fa-fw fa-bell-o" /><span id="CT">Calificar tutores</span></a>,
           <a style={menuPointer} key="2" onClick={this.getView}><i className="fa fa-fw fa-envelope-o" /><span id="MT">Mis tutores</span></a>,
-          <a style={menuPointer} key="3" onClick={this.getView}><i className="fa fa-fw fa-comment-o" /><span id="P">Perfil</span></a>]
+          <a style={menuPointer} key="3" onClick={this.getView}><i className="fa fa-fw fa-comment-o" /><span id="P">Perfil</span></a>,
+          <a style={menuPointer} key="4" onClick={this.getView}><i className="fa fa-fw fa-comment-o" /><span id="S">Quiero ser un tutor</span></a>]
     return items;
   }
 
@@ -44,6 +46,9 @@ export default class Demo extends React.Component {
 			break;
 		case 'P':
 			break;
+		case 'S':
+			this.setState({viewMenu: 4, isOpen:false});
+			break;
 		default:
 	}
  }
@@ -53,6 +58,11 @@ renderView(){
 	if (this.state.viewMenu === 0){
 		jsx = (
 			<SearchTutor/>
+		)
+	}
+	else if (this.state.viewMenu === 4){
+		jsx = (
+			<BeTutor/>
 		)
 	}
 	return jsx;
