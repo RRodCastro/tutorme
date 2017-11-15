@@ -1,9 +1,10 @@
 import React from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Grid, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import TutorCard from './tutorCard';
 
 export default class SearchTutor extends React.Component {
 	constructor(){
@@ -81,20 +82,36 @@ export default class SearchTutor extends React.Component {
 		let jsx;
 		const products = [ {id: '1', name: 'ablerto', price: 'Q100'}]
 		jsx = (
-		<div style={{width: '1200px', paddingLeft:'500px'}}>
-			<BootstrapTable data={ products } >
-          <TableHeaderColumn dataField='id' isKey>Product ID</TableHeaderColumn>
-          <TableHeaderColumn dataField='name'>Product Name</TableHeaderColumn>
-          <TableHeaderColumn dataField='price'>Product Price</TableHeaderColumn>
-      </BootstrapTable>
-	  </div>
+				<Grid>
+    <Row>
+			<TutorCard
+				name= {'Rafael Carrera'}
+				descr1= {'Estudiante de ingenieria ambiental'}
+				descr2 = {'Me apasiona las matematicas'}
+				descr3 = {'Estudio en la universidad rafael landivar'}
+			/>
+			<TutorCard
+				name= {'Vinicio Cerezo'}
+				descr1= {'Estudiante matematica'}
+				descr2 = {'Me apasiona las matematicas'}
+				descr3 = {'Estudio en la universidad del valle'}
+			/>
+			<TutorCard
+				name= {'Jacobo Arbenz'}
+				descr1= {'Profesor de matematica'}
+				descr2 = {'10 años de experiencia en eseñanza'}
+				descr3 = {'Graduado de la universidad san carlos'}
+			/>
+				</Row>
+    </Grid>
 		)
 		return jsx;
 		
 	}
 	render() {
 		return (
-			<div style= {{textAlign: 'center'}} >
+			<div style= {{paddingTop: '50px', textAlign: 'center'}} >
+				<h1> Buscar tutores </h1>
 				<label> Elige una disciplina </label> <br/> {this.showSearch()}
 				<br/>
 				<br/>

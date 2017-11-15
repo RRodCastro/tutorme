@@ -62,10 +62,12 @@ export default class Home extends React.Component {
 		}
 		return jsx;
 	}
+	
+				// {this.state.window === 0 ? this.showMenu(): this.renderView()}
     render() {
         return (
 			<div>
-				{this.state.window === 0 ? this.showMenu(): this.renderView()}
+				<Menu/>
 			</div>
 				
         )

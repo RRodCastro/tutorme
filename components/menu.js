@@ -11,7 +11,7 @@ export default class Demo extends React.Component {
     this.state = {
       currentMenu: 'slide',
       side: 'left',
-	  viewMenu: -1,
+	  viewMenu: 0,
 	  isOpen: false
 	  
     };
@@ -76,7 +76,7 @@ isMenuOpen(state){
     return (
       <div id="outer-container" style={{height: '100%'}}>
         {this.getMenu()}
-        {this.state.viewMenu === -1 ? <h1 style ={{textAlign: 'center'}}> Welcome to tutorMe</h1> : <h1/>}
+        {this.state.viewMenu === -1 ? <h1 style ={{textAlign: 'center'}}> Bienvenido a TutorMe</h1> : <h1/>}
 		{this.renderView()}
 	  </div>
     );
