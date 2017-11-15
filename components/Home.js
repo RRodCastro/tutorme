@@ -17,6 +17,7 @@ export default class Home extends React.Component {
 		    this.showLog = this.showLog.bind(this);
 			this.showRegister = this.showRegister.bind(this);
 			this.showMenu = this.showMenu.bind(this);
+			this.renderView = this.renderView.bind(this);
     }
 	showLog(){
 	
@@ -29,7 +30,7 @@ export default class Home extends React.Component {
 	
 	}
 	showMenu() {
-	const wellStyles = {paddingLeft: '275px'};
+	const wellStyles = {textAlign: 'center'};
 		return (
 		<div>
 				<h1 style={{textAlign:'center'}}> Tutor Me </h1>
@@ -47,11 +48,24 @@ export default class Home extends React.Component {
 			</div>
 		)
 	}
+	renderView() {
+		let jsx;
+		if (this.state.window === 1){
+			jsx = (
+				<SignIn/>
+			)
+		}
+		else if (this.state.window ===2){
+			jsx= (
+				<Register/>
+			)
+		}
+		return jsx;
+	}
     render() {
-
         return (
 			<div>
-				<Menu/>
+				{this.state.window === 0 ? this.showMenu(): this.renderView()}
 			</div>
 				
         )

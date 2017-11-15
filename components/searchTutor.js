@@ -93,7 +93,6 @@ export default class SearchTutor extends React.Component {
 		
 	}
 	render() {
-	console.log(this.state.showTable);
 		return (
 			<div style= {{textAlign: 'center'}} >
 				<label> Elige una disciplina </label> <br/> {this.showSearch()}

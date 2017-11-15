@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import BurgerMenu from 'react-burger-menu';
 import classNames from 'classnames';
 import '../css/app.css';
-import SignIn from './sign.js';
 import SearchTutor from './searchTutor.js';
 
 export default class Demo extends React.Component {
@@ -12,7 +11,7 @@ export default class Demo extends React.Component {
     this.state = {
       currentMenu: 'slide',
       side: 'left',
-	  viewMenu: 0,
+	  viewMenu: -1,
 	  isOpen: false
 	  
     };
@@ -59,7 +58,6 @@ renderView(){
 	return jsx;
 }
 isMenuOpen(state){
-console.log(state);
 	return state.isOpen;
 } 
   getMenu() {
@@ -75,11 +73,10 @@ console.log(state);
   }
 
   render() {
-	console.log(this.state.viewMenu);
     return (
       <div id="outer-container" style={{height: '100%'}}>
         {this.getMenu()}
-          <h1 style ={{textAlign: 'center'}}> Welcome to tutorMe</h1>
+        {this.state.viewMenu === -1 ? <h1 style ={{textAlign: 'center'}}> Welcome to tutorMe</h1> : <h1/>}
 		{this.renderView()}
 	  </div>
     );
