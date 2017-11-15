@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import '../css/app.css';
 import SearchTutor from './searchTutor.js';
 import BeTutor from './beTutor.js';
+import Profile from './profile.js';
+import Evaluate from './evaluateTutor.js';
 
 export default class Demo extends React.Component {
   constructor () {
@@ -12,7 +14,7 @@ export default class Demo extends React.Component {
     this.state = {
       currentMenu: 'slide',
       side: 'left',
-	  viewMenu: 0,
+	  viewMenu: -1,
 	  isOpen: false
 	  
     };
@@ -28,9 +30,8 @@ export default class Demo extends React.Component {
        items = [
           <a style={menuPointer} key="0" onClick={this.getView}><i className="fa fa-fw fa-star-o" /><span id="BT">Buscar tutores</span></a>,
           <a style={menuPointer} key="1" onClick={this.getView}><i className="fa fa-fw fa-bell-o" /><span id="CT">Calificar tutores</span></a>,
-          <a style={menuPointer} key="2" onClick={this.getView}><i className="fa fa-fw fa-envelope-o" /><span id="MT">Mis tutores</span></a>,
-          <a style={menuPointer} key="3" onClick={this.getView}><i className="fa fa-fw fa-comment-o" /><span id="P">Perfil</span></a>,
-          <a style={menuPointer} key="4" onClick={this.getView}><i className="fa fa-fw fa-comment-o" /><span id="S">Quiero ser un tutor</span></a>]
+          <a style={menuPointer} key="2" onClick={this.getView}><i className="fa fa-fw fa-comment-o" /><span id="P">Perfil</span></a>,
+          <a style={menuPointer} key="3" onClick={this.getView}><i className="fa fa-fw fa-comment-o" /><span id="S">Quiero ser un tutor</span></a>]
     return items;
   }
 
@@ -41,13 +42,13 @@ export default class Demo extends React.Component {
 			this.setState({viewMenu: 0, isOpen:false});
 			break;
 		case 'CT':
-			break;
-		case 'MT':
+			this.setState({viewMenu: 1, isOpen: false});
 			break;
 		case 'P':
+			this.setState({viewMenu: 2, isOpen: false});
 			break;
 		case 'S':
-			this.setState({viewMenu: 4, isOpen:false});
+			this.setState({viewMenu: 3, isOpen:false});
 			break;
 		default:
 	}
@@ -60,7 +61,17 @@ renderView(){
 			<SearchTutor/>
 		)
 	}
-	else if (this.state.viewMenu === 4){
+	else if (this.state.viewMenu === 1){
+		jsx = (
+			<Evaluate/>
+		)
+	}
+	else if (this.state.viewMenu === 2){
+		jsx = (
+			<Profile />
+		)
+	}
+	else if (this.state.viewMenu === 3){
 		jsx = (
 			<BeTutor/>
 		)

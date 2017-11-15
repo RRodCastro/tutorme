@@ -39,7 +39,7 @@ export default class Home extends React.Component {
 					
 					<Button onClick={this.showLog}  bsStyle="primary">
 						Inicio de sesion
-					</Button>
+					</Button>&nbsp;
 				
 					<Button onClick={this.showRegister}bsStyle="primary">
 						Registro
@@ -63,11 +63,11 @@ export default class Home extends React.Component {
 		return jsx;
 	}
 	
-				// {this.state.window === 0 ? this.showMenu(): this.renderView()}
+				
     render() {
         return (
 			<div>
-				<Menu/>
+				{this.state.window === 0 ? this.showMenu(): this.renderView()}
 			</div>
 				
         )
